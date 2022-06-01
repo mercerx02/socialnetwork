@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 
 from pathlib import Path
-from datetime import timedelta
 
 env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
@@ -14,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = 'django-insecure-0!i@_8nvm!(3pgm53#3a14f^wlf_y8crcbgdm%63+p%o66tqg9'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
@@ -121,12 +120,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
